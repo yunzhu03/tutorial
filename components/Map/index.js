@@ -1,12 +1,17 @@
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
+import styles from './style.module.css'
 
 
 import { Icon } from 'leaflet'
 
 const pins = [
-    [40, 2],
+    [40.4213,-3.7011 ],
     [21,3],
     [55, 70]
+]
+
+const pontos = [
+    {city: "Madrid", author: "Luis Araújo", coordenadas: [40.4213,-3.7011 ], photo: "/photos/luis-madrid.jpg"}
 ]
 
 export default function Map() {
@@ -19,11 +24,15 @@ export default function Map() {
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
-            {pins.map(pin => (
-                <Marker icon={markerIcon} position={pin}>
+            {pontos.map(ponto => (
+            <Marker key={ponto.coordenadas} icon={markerIcon} position={ponto.coordenadas}>
                 <Popup>
-                    A pretty CSS3 popup. <br /> Easily customizable.
-                  <img src="/pin.png" />
+                    <div>
+                        <h1>{ponto.city}</h1>
+                        <i>{ponto.author}</i>
+                        <br />
+                        <img  className={styles.photo} src={ponto.photo} />
+                    </div>
                 </Popup>
             </Marker>
             ))}
