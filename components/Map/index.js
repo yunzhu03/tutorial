@@ -19,7 +19,7 @@ export default function Map() {
         iconUrl: "/pin.png", iconSize: [25, 25], iconAnchor: [12, 41]
     })
     return (
-        <MapContainer center={[40, 0]} zoom={5} scrollWheelZoom={false} style={{ height: 500 }}>
+        <MapContainer center={[40, 0]} zoom={5} scrollWheelZoom={true} style={{ height: 950 }} >
             <TileLayer
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
